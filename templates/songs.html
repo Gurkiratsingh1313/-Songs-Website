@@ -1,0 +1,65 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block styles %}
+    {{super()}}
+        <link rel="stylesheet" href="{{url_for('.static', filename='css/styles.css')}}">
+    {% endblock styles %}
+
+{% block title %}Songs{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <h1 style="text-align: center;">All Songs</h1>
+
+  <table class="table">
+      <th>
+
+      Song Name
+
+      </th>
+      <th>
+
+      Song Link
+
+      </th>
+      <th>
+
+      Song Rating
+
+      </th>
+      <th>
+
+      Explicit
+
+      </th>
+      <th>
+
+      Song Genre
+
+    </th>
+    <tbody>
+        {% for song in songs %}
+            <tr>
+                <td>{{ song.name }}</td>
+                <td><a href="{{ song.link }}" target="_blank">Click Here!</a></td>
+                <td>{{ song.rating }}</td>
+                <td>{{ song.explicit }}</td>
+                <td>{{ song.genre }}</td>
+            </tr>
+        {% endfor %}
+  </tbody>
+  	  </table>
+
+        <p style="text-align: center;"><a class="btn btn-warning btn-lg" href="/add" role="button">Add a Song!</a></p>
+        <p style="text-align: center;"><a class="btn btn-warning btn-lg" href="/" role="button">Return To Index!</a></p>
+
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

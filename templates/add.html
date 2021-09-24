@@ -1,0 +1,27 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block styles %}
+    {{super()}}
+        <link rel="stylesheet" href="{{url_for('.static', filename='css/styles.css')}}">
+    {% endblock styles %}
+
+{% block title %}Add A New Song{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-8">
+
+      <h1>Add a New Song into the Database!</h1>
+
+      <!-- This is where your WTForm will go -->
+      {{ wtf.quick_form(form, novalidate=True) }}
+        
+	  <p class="space-above"><a href="{{ url_for('songs') }}">See all Songs</a></p>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
