@@ -1,8 +1,6 @@
 from flask import Flask, render_template, url_for
 from flask_bootstrap import Bootstrap
-from sqlalchemy import orm
 from werkzeug.utils import redirect
-import csv
 from form import FlaskForm
 from flask_sqlalchemy import SQLAlchemy
 
